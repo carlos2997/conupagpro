@@ -1,0 +1,32 @@
+#Command deployment shell
+az group create --name proyectoCONU --location eastus
+
+az group deployment create \
+  --resource-group proyectoCONU \
+  --template-uri https://raw.githubusercontent.com/carlos2997/conupagpro/master/azuredeploy.json
+  
+az network public-ip show \
+  --resource-group proyectoCONU \
+  --name myScaleSetPublicIP \
+  --query [ipAddress] \
+  --output tsv
+  
+
+  
+#command custom deployment
+nano customConfig
+
+"fileUris": ["https://raw.githubusercontent.com/carlos2997/conu-pagina/master/page.js",
+			"https://raw.githubusercontent.com/carlos2997/conu-pagina/master/index.html",
+			"https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/nodejs-app/nginx",
+			"https://raw.githubusercontent.com/carlos2997/conu-pagina/master/deploy-v1.sh"],
+			"commandToExecute": "./deploy-v1.sh"
+
+  
+az vmss extension set \
+  --publisher Microsoft.Azure.Extensions \
+  --version 2.0 \
+  --name CustomScript \
+  --resource-group proyectoCONU \
+  --vmss-name myScaleSet \
+  --settings @customConfig.json  
