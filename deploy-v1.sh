@@ -23,6 +23,8 @@
 # SOFTWARE.
 
 apt-get install -y nginx
+apt-get install nodejs
+apt-get install npm
 
 # Copy NGINX site file
 cp nginx /etc/nginx/sites-available/default
