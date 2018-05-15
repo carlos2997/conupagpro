@@ -270,11 +270,8 @@
                     "typeHandlerVersion": "2.0",
                     "autoUpgradeMinorVersion": true,
                     "settings": {
-			"fileUris": ["https://raw.githubusercontent.com/carlos2997/conupagpro/master/page.js",
-			"https://raw.githubusercontent.com/carlos2997/conupagpro/master/webpage.html",
-			"https://raw.githubusercontent.com/carlos2997/conupagpro/master/nginx",
-			"https://raw.githubusercontent.com/carlos2997/conupagpro/master/deploy-v1.sh"],
-			"commandToExecute": "./deploy-v1.sh"
+			"fileUris": ["https://raw.githubusercontent.com/carlos2997/conupagpro/master/deploy.sh"],
+			"commandToExecute": "./deploy.sh"
                     }
                   }
                 }
